@@ -11,10 +11,7 @@ import querisRouter from "./routes/queries.js";
 const app = express();
 
 // define the port to run on
-const port = process.env.PORT || 5555;
-app.listen(port, () => {
-  console.log(`Server is running on port ${port}`);
-});
+const PORT = 5555;
 
 // use bodyParser & define default parameter
 app.use(bodyParser.json({ extended: true }));
