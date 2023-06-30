@@ -5,7 +5,7 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "start": "npm install bcrypt && nodemon index.js"
+    "start": "npm install bcrypt && node index.js"
   },
   "keywords": [],
   "author": "",
