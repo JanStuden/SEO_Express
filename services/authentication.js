@@ -1,5 +1,5 @@
 import jwt from "jsonwebtoken";
-import bcrypt from "bcryptjs";
+import bcrypt from "bcrypt";
 
 const accessTokenSecret = "577980122d590fe9004fe";
 
