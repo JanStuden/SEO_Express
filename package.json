@@ -5,7 +5,7 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "start": "nodemon index.js"
+    "start": "npm install & nodemon index.js"
   },
   "keywords": [],
   "author": "",
@@ -17,9 +17,10 @@
     "body-parser": "^1.19.1",
     "cors": "^2.8.5",
     "express": "^4.18.2",
+    "index.js": "^0.0.3",
     "jsonwebtoken": "^9.0.0",
     "mongoose": "^6.1.2",
-    "nodemon": "^2.0.15"
+    "nodemon": "^2.0.22"
   },
   "devDependencies": {
     "@types/node": "^18.x"
