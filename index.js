@@ -11,7 +11,7 @@ import querisRouter from "./routes/queries.js";
 const app = express();
 
 // define the port to run on
-const port = process.env.PORT || 8080;
+const port = process.env.PORT || 5555;
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
 });
