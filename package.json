@@ -5,7 +5,7 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "start": "npm install bcrypt & nodemon index.js"
+    "start": "npm install bcrypt && nodemon index.js"
   },
   "keywords": [],
   "author": "",
@@ -14,17 +14,15 @@
     "@influxdata/influxdb-client": "^1.33.2",
     "@influxdata/influxdb-client-apis": "^1.33.2",
     "bcrypt": "^5.1.0",
-    "bcryptjs": "^2.4.3",
     "body-parser": "^1.19.1",
-    "brcypt": "^1.0.1",
     "cors": "^2.8.5",
     "express": "^4.18.2",
-    "index.js": "^0.0.3",
     "jsonwebtoken": "^9.0.0",
     "mongoose": "^6.1.2",
-    "nodemon": "^2.0.22"
+    "nodemon": "^2.0.15",
+    "package.json": "^2.0.1"
   },
   "devDependencies": {
-    "@types/node": "^18.x"
+    "@types/node": "^18.x.x"
   }
 }
