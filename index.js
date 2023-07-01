@@ -11,7 +11,7 @@ import querisRouter from "./routes/queries.js";
 const app = express();
 
 // define the port to run on
-const PORT = 5555;
+const port = process.env.PORT || 3000
 
 // use bodyParser & define default parameter
 app.use(bodyParser.json({ extended: true }));
@@ -29,11 +29,11 @@ app.use("/queries", querisRouter)
 const CONNECTION_URL = "mongodb+srv://max:max123@di.6jqtvsa.mongodb.net/seodashboard?retryWrites=true&w=majority";
 mongoose.connect(CONNECTION_URL, { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => {
-        app.listen(PORT, () => {
+        app.listen(port, () => {
             console.log("Server is running");
         })
     })
     .catch((error) => console.log(error.message));
-
+ 
 mongoose.set("returnOriginal", false);
 mongoose.set("strictQuery", true);
