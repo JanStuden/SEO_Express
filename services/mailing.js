@@ -68,7 +68,7 @@ export const sendRecoveryMail = async (recipient, username, password) => {
         <p>Dear ` + username + `, you requested a password reset. Attached you can find a temporary password. Please choose a new password as soon as possible.</p>
         <p>Temporary Password: <span class="password">` + password +`</span></p>
         <p>
-            <a class="button" href="http://localhost:3000/login">SEO Dashboard</a>
+            <a class="button" href="https://zealous-dune-0d2b61d03.3.azurestaticapps.net/login">SEO Dashboard</a>
         </p>
     </div>
     </body>
@@ -137,7 +137,7 @@ export const sendSignUpMail = async (recipient, username, password) => {
         <p>Dear ` + username + `, welcome to the LMUxMM SEO Dashboard! This is a confirmation for the creation of your account. Attached you can find a temporary password. Please choose a new password as soon as possible.</p></p>
         <p>Temporary Password: <span class="password">` + password + `</span></p>
         <p>
-            <a class="button" href="http://localhost:3000/login">SEO Dashboard</a>
+            <a class="button" href="https://zealous-dune-0d2b61d03.3.azurestaticapps.net/login">SEO Dashboard</a>
         </p>
     </div>
     </body>
