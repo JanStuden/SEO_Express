@@ -2,6 +2,7 @@ import express from "express";
 import bodyParser from "body-parser";
 import mongoose from "mongoose";
 import cors from "cors";
+import {sendRecoveryMail} from "./services/mailing.js";
 
 import usersRouter from "./routes/users.js";
 import dashboardsRouter from "./routes/dashboards.js";
@@ -34,6 +35,6 @@ mongoose.connect(CONNECTION_URL, { useNewUrlParser: true, useUnifiedTopology: tr
         })
     })
     .catch((error) => console.log(error.message));
- 
+
 mongoose.set("returnOriginal", false);
 mongoose.set("strictQuery", true);
