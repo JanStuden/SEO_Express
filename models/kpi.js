@@ -16,6 +16,9 @@ const kpiSchema = mongoose.Schema({
     },
     visualizations: {
         type:Object, default: {}
+    },
+    reports: {
+        type:Object, default: {}
     }
 })
 

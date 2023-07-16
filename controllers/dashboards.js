@@ -26,9 +26,9 @@ export const getDashboard = async (req, res) => {
 
 export const createDashboard = async (req,res) => {
     const dashboard = req.body;
-    const username = req.headers.username;
+    const username = req.body.creator;
 
-    const newDashboard = new Dashboard({"dashboardName": dashboard.dashboardName, "dataSource": dashboard.dataSource, "KPIs": dashboard.KPIs, "userWhiteList": [username], "creator": username})
+    const newDashboard = new Dashboard({"dashboardName": dashboard.dashboardName, "dataSource": dashboard.dataSource, "KPIs": dashboard.KPIs, "userWhiteList": [username], "creator": username, "creationDate": dashboard.creationDate})
     try {
         await newDashboard.save();
         res.status(201).json(newDashboard);
@@ -42,7 +42,7 @@ export const updateDashboard = async (req, res) => {
     const dashboard = req.body;
     try {
         const curDash = await Dashboard.findById(id);
-        if (curDash.creator === req.username) {
+        if (curDash.creator === req.body.creator) {
             const updatedDash = await Dashboard.findByIdAndUpdate(id, dashboard);
             res.status(200).json(updatedDash);
         } else {
@@ -57,7 +57,7 @@ export const deleteDashboard = async (req, res) => {
     const id = req.params.id;
     try {
         const dashboard = await Dashboard.findById(id);
-        if (dashboard.creator === req.username) {
+        if (dashboard.creator === req.body.username) {
             await Dashboard.findByIdAndDelete(id);
             res.status(200).json({ message: "successfully deleted dashboard"});
         } else {

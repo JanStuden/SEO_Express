@@ -74,7 +74,7 @@ export const metricMean_page_time = async (req, res) => {
   |> range(start: time(v:"${time_start}"), stop: time(v:"${time_end}"))
   |> filter(fn: (r) => r["_measurement"] == "${web_page}")
   |> filter(fn: (r) => r["_field"] == "${metric_name}")
-  |> aggregateWindow(every: 10d, fn: mean, createEmpty: false)
+  |> aggregateWindow(every: 1d, fn: mean, createEmpty: false)
   |> mean()`
   console.log(query)
 
@@ -126,8 +126,13 @@ export const available_events = async (req, res) => {
   for await (const {values, tableMeta} of queryApi.iterateRows(query)) {
   
   let obj = tableMeta.toObject(values)
-  console.log(obj.name)
-  list.push(obj.name);
+ 
+  if(obj.name!=="_monitoring" ){
+    if(obj.name!=="_tasks" ){
+      list.push(obj.name);
+      console.log(obj.name)
+    }
+  }
 }
 res.status(200).json(list)
 }
@@ -150,8 +155,9 @@ res.status(200).json(list)
 }
 
 export const metricOverall_page_time_sum = async (req, res) => {
-
+  
   let list = [];
+  
 
   const bucket_name =  req.query.bucket_name;
   const metric_name =  req.query.metric_name;
@@ -170,7 +176,7 @@ export const metricOverall_page_time_sum = async (req, res) => {
   list.push(tableMeta.toObject(values))
   //console.log(list.length)
 }
-
+console.log(list)
 res.status(200).json(list);
 }
 
@@ -230,9 +236,18 @@ export const get_top_keywords_for_metric_all_subpages = async (req, res) => {
 res.status(200).json(list);
 }
 
+export const available_measurements= async (req, res) => {
 
-/** Execute a query and receive line table metadata and rows. */
-//myQuery()
+  let list = [];
+  const bucket_name =  req.query.bucket_name;
+  const query=  `import "influxdata/influxdb/schema" schema.fieldKeys(bucket: "${bucket_name}")`
+  //console.log(query)
 
-
-
+  for await (const {values, tableMeta} of queryApi.iterateRows(query)) {
+  
+  let obj = tableMeta.toObject(values)
+  console.log(obj.name)
+  list.push(obj._value);
+}
+res.status(200).json(list)
+}

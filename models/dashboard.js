@@ -10,15 +10,17 @@ const dashboardSchema = mongoose.Schema({
         type: String,
         required: true,
     },
-    KPIs: {
-        type:Object, default: {}
-    },
-    userWhiteList: {
-        type:Object, default: {}
-    },
+    KPIs: [
+        {}
+    ],
+    userWhiteList: [
+    ],
     creator: {
         type: String,
-    }
+    },
+    creationDate: {
+        type: String,
+    },    
 })
 
 const Dashboard = mongoose.model("Dashboard", dashboardSchema);
