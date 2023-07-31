@@ -10,7 +10,7 @@ export const getKPIs = async (req,res) => {
 }
 
 export const getKPI = async (req, res) => {
-    const id = req.body.id;
+    const id = req.params.id;
     try {
         const kpi = await KPI.findById(id);
         res.status(200).json(kpi);
