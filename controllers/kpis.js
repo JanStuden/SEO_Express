@@ -10,9 +10,9 @@ export const getKPIs = async (req,res) => {
 }
 
 export const getKPI = async (req, res) => {
-    const id = req.params.id;
+    const influxIdentifier  = req.query.kpiName;
     try {
-        const kpi = await KPI.findById(id);
+        const kpi = await KPI.findOne({ influxIdentifier });
         res.status(200).json(kpi);
     } catch (error) {
         res.status(404).json({ message: error.message });
